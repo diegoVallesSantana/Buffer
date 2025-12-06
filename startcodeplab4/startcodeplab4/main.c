@@ -42,7 +42,7 @@ void *readf(void *arg){
     while (1) {
         sensor_data_t data;
         if (sbuffer_remove(Buffer, &data) != SBUFFER_SUCCESS) {break;}
-        if (data.id == 0) {break;}
+        if (data.id == 0 && data.value == 0.0 && data.ts == 0) {break;} // full eos because some sensor ids == 0
 
         pthread_mutex_lock(&file_mutex);
         fprintf(fout, "%u,%.2f,%ld\n", (unsigned int)data.id, data.value, (long)data.ts);
