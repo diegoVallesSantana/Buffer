@@ -1,5 +1,5 @@
 /**
- * \author {AUTHOR}
+ * \author {Bert Lagaisse}
  */
 
 #ifndef _SBUFFER_H_
